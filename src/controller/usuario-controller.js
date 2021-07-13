@@ -1,9 +1,13 @@
- const rotasUsuario = (app) => {
+  const rotasUsuario = (app, bd, UserModel) => {
     app.get('/usuarios', (req, resp) => {
-        resp.send('<h1> Usuários <h1>');
+        resp.send(bd.users);
     });
     app.post('/usuarios', (req, resp) => {
-        resp.send('<h1>Rota ativada com POST e recurso<h1>');
-    });
+        const{nome,email,senha} = req.body
+        let novoUsuario = new UserModel(nome,email,senha)
+        bd.users.push(novoUsuario)
+        resp.send('Usuário criado com sucesso.');
+    })
 }
+
 module.exports = rotasUsuario
