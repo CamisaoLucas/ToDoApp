@@ -17,15 +17,21 @@ const Tarefa = require('./models/TarefaModel')
 
 
 //Banco de Dados
-const bd = require('./infra/bd')
+const bd = require('./infra/bd');
+const { emailUsuario, rotasUsuario, deletaUsuario } = require('./controller/usuario-controller');
+const { rotasTarefa, filtroTarefa, deletaTarefa } = require('./controller/tarefa-controller');
 
 //MiddleWare
 app.use(express.json())
 
 
 //Rotas
-usuarioController(app, bd, User);
-tarefaController(app, bd, Tarefa);
+rotasUsuario(app, bd, User);
+rotasTarefa(app, bd, Tarefa);
+emailUsuario(app,bd,User);
+filtroTarefa(app,bd,Tarefa);
+deletaUsuario(app,bd,User);
+deletaTarefa(app,bd,Tarefa)
 
 
 //Listen
