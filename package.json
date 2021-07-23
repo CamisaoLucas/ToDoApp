@@ -1,21 +1,24 @@
 {
-  "name": "projetotodoapp",
+  "name": "packages-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Pacotes para o ToDo App",
+  "main": "./src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/index.js",
-    "start": "node ./src/index.js"
+    "test": "jest",
+    "dev": "nodemon ./src/app.js",
+    "start": "node ./src/app.js",
+    "populate": "node ./src/infra/create-and-populate.js"
   },
   "author": "Lucas Camisão",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "chalk": "^4.1.1",
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.9"
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.9",
+    "supertest": "^6.1.3"
   }
 }

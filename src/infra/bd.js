@@ -1,6 +1,4 @@
-const bd = {
-    users:[],
-    tarefas:[]
+module.exports = db = {
+    users: [],
+    tasks: []
 }
-
-module.exports = bd
